@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Head, Heading, Hero, MaxContainer } from "@/components";
 import projectsImg from "@/assets/hero/projects.webp";
 import ProjectsCard from "@/components/projects/ProjectsCard";
 import { useGetProjectsByDeptIdQuery } from "@/redux/api/projectsApi";
 import { useTranslation } from "react-i18next";
+import { useGetBannerImagesQuery } from "@/redux/api/bannerApi";
 
 const Projects = () => {
   const { t } = useTranslation();
   const { data } = useGetProjectsByDeptIdQuery();
+   const { data:banner, isLoading } = useGetBannerImagesQuery();
 
   const options = [
     { key: "kuwait", label: `kuwait` },
@@ -24,14 +26,16 @@ const Projects = () => {
   return (
     <>
       <Head
-        title={data?.data?.seo?.title || "Projects | NBTC"}
-        description={data?.data?.seo?.metaDescription || "Description"}
-        canonical={data?.data?.seo?.canonicalUrl}
-        ogUrl={data?.data?.seo?.ogUrl}
-        ogImage={data?.data?.seo?.ogImage}
-        keywords={data?.dat?.seo?.metaKeywords}
+        title={data?.data?.projects?.seo?.title || "Projects | NBTC"}
+        description={
+          data?.data?.projects?.seo?.metaDescription || "Description"
+        }
+        canonical={data?.data?.projects?.seo?.canonicalUrl}
+        ogUrl={data?.data?.projects?.seo?.ogUrl}
+        ogImage={data?.data?.projects?.seo?.ogImage}
+        keywords={data?.dat?.projects?.seo?.metaKeywords}
       />
-      <Hero src={projectsImg} heading={t("nav.projects.title")} />
+      <Hero src={`${import.meta.env.VITE_API_BASE_URL}/${banner?.data?.project?.image}`} heading={t("nav.projects.title")} />
 
       <MaxContainer className="max-w-[1200px] px-3">
         <Heading variant="big" className="pb-6 pt-10 uppercase">
