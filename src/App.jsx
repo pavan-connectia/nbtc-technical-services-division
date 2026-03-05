@@ -56,7 +56,7 @@ const routes = [
   { path: "/about/chairman-msg", element: <ChairmanMsg /> },
   { path: "/about/md-msg", element: <MdMsg /> },
   { path: "/about/executive-management", element: <ExecutiveManagement /> },
-  { path: "/about/qualifications", element: <Qualifications /> },
+  // { path: "/about/qualifications", element: <Qualifications /> },
   { path: "/about/subsidiary", element: <Subsidiary /> },
   { path: "/services", element: <CoreBusiness /> },
   { path: "/services/service", element: <Equipments /> },
