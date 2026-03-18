@@ -49,7 +49,7 @@ const Home = () => {
       <LazyLoadComponent Component={OurServices} />
       <LazyLoadComponent Component={HomeProjects} />
       <LazyLoadComponent Component={Client} />
-      <LazyLoadComponent Component={OurMilestones} />
+      {/* <LazyLoadComponent Component={OurMilestones} /> */}
       <LazyLoadComponent Component={Awards} />
       <LazyLoadComponent Component={Afflicates} />
       <LazyLoadComponent Component={EmployeeLinks} />
